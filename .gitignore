@@ -1,5 +1,2 @@
 #exclude the mugshot pictures
 mugShots/*
-include/db_login.php
-inventory/include/db_login.php
-ip/include/db_login.php

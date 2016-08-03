@@ -1,0 +1,5 @@
+AuthName "CCA IP Database"
+AuthType Basic
+AuthUserFile /Sites/idsearch.cca.edu/documents/ip/.htpasswd
+AuthGroupFile /dev/null
+Require valid-user

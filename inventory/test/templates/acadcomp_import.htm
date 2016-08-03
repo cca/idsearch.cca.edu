@@ -1,0 +1,44 @@
+<HTML>
+<HEAD><TITLE>Import</TITLE>
+<LINK href="include/style.css" type=text/css rel=stylesheet>
+<script language="JavaScript" src="include/jquery.js"></script>
+<script language="JavaScript" src="include/ajaxsuggest.js"></script>
+<script language="JavaScript" src="include/jsfunctions.js"></script>
+</HEAD>
+
+<body onLoad="javascript:if (document.frmimport.btnSubmit != null) document.frmimport.btnSubmit.focus();">
+<BODY bgColor=white >
+{$header}
+{BEGIN body}
+<div>
+<H1>Import</H1> 
+<font size=2>
+Browse to the comma-separated (.csv) or to the Excel (.xls) file that you wish to import.<br>
+The first line in the file should contain the field names.
+</font>
+<DIV align=left>
+<HR width=400 noShade SIZE=1>
+</DIV>
+<TABLE cellPadding=2 border=0>
+  <TBODY>
+  <TR>
+    <TD align=right width=150 valign=bottom><b>Select file with data</b></TD>
+    <TD width=250 ><br>
+	<input type="File" id="file_ImportFileName" {$importfile_attrs}>
+	<br><b></b>
+	
+</TD></TR>
+  <TR height=50>
+    <TD align=middle colSpan=2><INPUT class=button id=submit1 type=submit value=Import name=submit1> 
+<input class=button type=button value="Back to list" {$backtolist_attrs}>
+</TD></TR>
+  <TR>
+    <TD align=left colSpan=2>
+      <HR width=400 noShade SIZE=1>
+	  <div>{$error_message}
+	  </div>
+    </TD></TR></TBODY></TABLE> 
+</div>
+{END body}
+{$footer}
+</BODY></HTML>

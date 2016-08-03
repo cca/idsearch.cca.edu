@@ -1,0 +1,39 @@
+<html>
+<link REL="stylesheet" href="include/style.css" type="text/css">
+<body>
+{$header}
+{BEGIN body}
+	<table width=500 border=0 cellpadding=3 align=center><tr><td>
+	<TABLE WIDTH=100% CELLPADDING=0 CELLSPACING=0 BORDER=0>
+	<TR><TD align=center>
+	<table border=0 width=100% CELLPADDING=3 CELLSPACING=1>
+	<tr>
+		{BEGIN rangeheader_block}<td class=upeditmenu align=center>Data range</td>{END rangeheader_block}
+		<td class=upeditmenu align=center>Output format</td>
+	</tr>
+	<tr valign=top>
+	{BEGIN range_block}
+	<td width=250 class=export_left>
+		<INPUT TYPE="Radio" NAME="records" VALUE="all" CHECKED> All records<br>
+		<INPUT TYPE="Radio" NAME="records" VALUE="page"> Current page only<br>
+	</td>
+	{END range_block}
+	<td width=250 class=export_right>
+		<INPUT TYPE="Radio" NAME="type" VALUE="excel" CHECKED> <img src="images/excel.gif"> Excel
+		<br><INPUT TYPE="Radio" NAME="type" VALUE="word"> <img src="images/word.gif"> Word
+		<br><INPUT TYPE="Radio" NAME="type" VALUE="csv"> <img src="images/csv.gif"> CSV (comma separated values)
+		<br><INPUT TYPE="Radio" NAME="type" VALUE="xml"> <img src="images/xml.gif"> XML
+		<br><INPUT TYPE="Radio" NAME="type" VALUE="pdf"> <img src="images/pdf.gif"> PDF
+	</td>
+	</tr>
+	<tr height=40 valign=middle>
+	<td colspan=2 align=center class=downedit>
+	 <span class=buttonborder><input class=button type=submit name=btnSubmit  value="Export" class=button></span>
+	</td>
+	</tr>
+	</table>
+</td></tr></table></td></tr></table>
+{END body}	
+{$footer}
+</body>
+</html>

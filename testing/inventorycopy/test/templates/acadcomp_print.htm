@@ -1,0 +1,428 @@
+<html>
+<head>
+<title>Acadcomp</title>
+<link REL="stylesheet" href="include/style.css" type="text/css">
+<!--[if IE]>
+<link REL="stylesheet" href="include/styleIE.css" type="text/css">
+<![endif]-->
+<style>
+.grid_block {  
+margin-top:5px;
+border-collapse: collapse;
+align:center;
+width:95%;
+border:none;
+} 
+.grid_block td { 
+ padding: 5px; 
+ margin: 0px; 
+ border: solid black 1px;
+}
+.grid_block .gridspacing {width:20px;border-top-color:white; border-bottom-color:white;background-color:white}
+@media print 
+{
+	a.pdf {display:none}
+}
+.printpage {page-break-after:always}
+#selpage{margin-left:30px;}
+</style> 
+</head>
+<body style="background-color:white">
+{BEGIN body}
+{BEGIN page}
+{$header}
+
+<h1>Acadcomp</h1>
+{BEGIN page_number}
+<div id='selpage'>Page {$page} of {$maxpages} </div>
+{END page_number}
+
+{BEGIN grid_block}
+
+<table align="center" cellpadding=5 class="grid_block">
+{BEGIN grid_header}
+<tr>
+{BEGIN record_header}
+{BEGIN record_id_fieldheadercolumn}
+	<td>
+{BEGIN record_id_fieldheader}
+	<b>Record Id</b>
+{END record_id_fieldheader}
+	</td>
+{END record_id_fieldheadercolumn}
+{BEGIN campus_fieldheadercolumn}
+	<td>
+{BEGIN campus_fieldheader}
+	<b>Campus</b>
+{END campus_fieldheader}
+	</td>
+{END campus_fieldheadercolumn}
+{BEGIN bldg_fieldheadercolumn}
+	<td>
+{BEGIN bldg_fieldheader}
+	<b>Bldg</b>
+{END bldg_fieldheader}
+	</td>
+{END bldg_fieldheadercolumn}
+{BEGIN floor_fieldheadercolumn}
+	<td>
+{BEGIN floor_fieldheader}
+	<b>Floor</b>
+{END floor_fieldheader}
+	</td>
+{END floor_fieldheadercolumn}
+{BEGIN room_fieldheadercolumn}
+	<td>
+{BEGIN room_fieldheader}
+	<b>Room</b>
+{END room_fieldheader}
+	</td>
+{END room_fieldheadercolumn}
+{BEGIN labselect_fieldheadercolumn}
+	<td>
+{BEGIN labselect_fieldheader}
+	<b>Labselect</b>
+{END labselect_fieldheader}
+	</td>
+{END labselect_fieldheadercolumn}
+{BEGIN mach_type_fieldheadercolumn}
+	<td>
+{BEGIN mach_type_fieldheader}
+	<b>Mach Type</b>
+{END mach_type_fieldheader}
+	</td>
+{END mach_type_fieldheadercolumn}
+{BEGIN platform_fieldheadercolumn}
+	<td>
+{BEGIN platform_fieldheader}
+	<b>Platform</b>
+{END platform_fieldheader}
+	</td>
+{END platform_fieldheadercolumn}
+{BEGIN model_fieldheadercolumn}
+	<td>
+{BEGIN model_fieldheader}
+	<b>Model</b>
+{END model_fieldheader}
+	</td>
+{END model_fieldheadercolumn}
+{BEGIN other_model_fieldheadercolumn}
+	<td>
+{BEGIN other_model_fieldheader}
+	<b>Other Model</b>
+{END other_model_fieldheader}
+	</td>
+{END other_model_fieldheadercolumn}
+{BEGIN asset_tag_fieldheadercolumn}
+	<td>
+{BEGIN asset_tag_fieldheader}
+	<b>Asset Tag</b>
+{END asset_tag_fieldheader}
+	</td>
+{END asset_tag_fieldheadercolumn}
+{BEGIN serial_fieldheadercolumn}
+	<td>
+{BEGIN serial_fieldheader}
+	<b>Serial</b>
+{END serial_fieldheader}
+	</td>
+{END serial_fieldheadercolumn}
+{BEGIN service_tag_fieldheadercolumn}
+	<td>
+{BEGIN service_tag_fieldheader}
+	<b>Service Tag</b>
+{END service_tag_fieldheader}
+	</td>
+{END service_tag_fieldheadercolumn}
+{BEGIN proc_speed_fieldheadercolumn}
+	<td>
+{BEGIN proc_speed_fieldheader}
+	<b>Proc Speed</b>
+{END proc_speed_fieldheader}
+	</td>
+{END proc_speed_fieldheadercolumn}
+{BEGIN proc_type_fieldheadercolumn}
+	<td>
+{BEGIN proc_type_fieldheader}
+	<b>Proc Type</b>
+{END proc_type_fieldheader}
+	</td>
+{END proc_type_fieldheadercolumn}
+{BEGIN ram_fieldheadercolumn}
+	<td>
+{BEGIN ram_fieldheader}
+	<b>Ram</b>
+{END ram_fieldheader}
+	</td>
+{END ram_fieldheadercolumn}
+{BEGIN disk_size_fieldheadercolumn}
+	<td>
+{BEGIN disk_size_fieldheader}
+	<b>Disk Size</b>
+{END disk_size_fieldheader}
+	</td>
+{END disk_size_fieldheadercolumn}
+{BEGIN optical_drive_fieldheadercolumn}
+	<td>
+{BEGIN optical_drive_fieldheader}
+	<b>Optical Drive</b>
+{END optical_drive_fieldheader}
+	</td>
+{END optical_drive_fieldheadercolumn}
+{BEGIN display_model_fieldheadercolumn}
+	<td>
+{BEGIN display_model_fieldheader}
+	<b>Display Model</b>
+{END display_model_fieldheader}
+	</td>
+{END display_model_fieldheadercolumn}
+{BEGIN display_size_fieldheadercolumn}
+	<td>
+{BEGIN display_size_fieldheader}
+	<b>Display Size</b>
+{END display_size_fieldheader}
+	</td>
+{END display_size_fieldheadercolumn}
+{BEGIN display_asset_fieldheadercolumn}
+	<td>
+{BEGIN display_asset_fieldheader}
+	<b>Display Asset</b>
+{END display_asset_fieldheader}
+	</td>
+{END display_asset_fieldheadercolumn}
+{BEGIN display_serial_fieldheadercolumn}
+	<td>
+{BEGIN display_serial_fieldheader}
+	<b>Display Serial</b>
+{END display_serial_fieldheader}
+	</td>
+{END display_serial_fieldheadercolumn}
+{BEGIN notes_fieldheadercolumn}
+	<td>
+{BEGIN notes_fieldheader}
+	<b>Notes</b>
+{END notes_fieldheader}
+	</td>
+{END notes_fieldheadercolumn}
+{BEGIN last_updated_fieldheadercolumn}
+	<td>
+{BEGIN last_updated_fieldheader}
+	<b>Last Updated</b>
+{END last_updated_fieldheader}
+	</td>
+{END last_updated_fieldheadercolumn}
+{BEGIN uname_fieldheadercolumn}
+	<td>
+{BEGIN uname_fieldheader}
+	<b>Uname</b>
+{END uname_fieldheader}
+	</td>
+{END uname_fieldheadercolumn}
+{BEGIN lname_fieldheadercolumn}
+	<td>
+{BEGIN lname_fieldheader}
+	<b>Lname</b>
+{END lname_fieldheader}
+	</td>
+{END lname_fieldheadercolumn}
+{BEGIN dept_fieldheadercolumn}
+	<td>
+{BEGIN dept_fieldheader}
+	<b>Dept</b>
+{END dept_fieldheader}
+	</td>
+{END dept_fieldheadercolumn}
+{BEGIN mach_name_fieldheadercolumn}
+	<td>
+{BEGIN mach_name_fieldheader}
+	<b>Mach Name</b>
+{END mach_name_fieldheader}
+	</td>
+{END mach_name_fieldheadercolumn}
+{BEGIN ip_addr_fieldheadercolumn}
+	<td>
+{BEGIN ip_addr_fieldheader}
+	<b>Ip Addr</b>
+{END ip_addr_fieldheader}
+	</td>
+{END ip_addr_fieldheadercolumn}
+{BEGIN mac_addr_fieldheadercolumn}
+	<td>
+{BEGIN mac_addr_fieldheader}
+	<b>Mac Addr</b>
+{END mac_addr_fieldheader}
+	</td>
+{END mac_addr_fieldheadercolumn}
+{BEGIN endrecordheader_block}
+	<td class="gridspacing">&nbsp;</td>
+{END endrecordheader_block}
+{END record_header}
+</tr>
+{END grid_header}
+{BEGIN grid_row}
+<tr valign=top {$rowstyle} {$rowattrs}>
+{BEGIN grid_record}
+{BEGIN record_id_fieldcolumn}
+<td {$record_id_style}>
+{$record_id_value}
+</td>
+{END record_id_fieldcolumn}
+{BEGIN campus_fieldcolumn}
+<td {$campus_style}>
+{$campus_value}
+</td>
+{END campus_fieldcolumn}
+{BEGIN bldg_fieldcolumn}
+<td {$bldg_style}>
+{$bldg_value}
+</td>
+{END bldg_fieldcolumn}
+{BEGIN floor_fieldcolumn}
+<td {$floor_style}>
+{$floor_value}
+</td>
+{END floor_fieldcolumn}
+{BEGIN room_fieldcolumn}
+<td {$room_style}>
+{$room_value}
+</td>
+{END room_fieldcolumn}
+{BEGIN labselect_fieldcolumn}
+<td {$labselect_style}>
+{$labselect_value}
+</td>
+{END labselect_fieldcolumn}
+{BEGIN mach_type_fieldcolumn}
+<td {$mach_type_style}>
+{$mach_type_value}
+</td>
+{END mach_type_fieldcolumn}
+{BEGIN platform_fieldcolumn}
+<td {$platform_style}>
+{$platform_value}
+</td>
+{END platform_fieldcolumn}
+{BEGIN model_fieldcolumn}
+<td {$model_style}>
+{$model_value}
+</td>
+{END model_fieldcolumn}
+{BEGIN other_model_fieldcolumn}
+<td {$other_model_style}>
+{$other_model_value}
+</td>
+{END other_model_fieldcolumn}
+{BEGIN asset_tag_fieldcolumn}
+<td {$asset_tag_style}>
+{$asset_tag_value}
+</td>
+{END asset_tag_fieldcolumn}
+{BEGIN serial_fieldcolumn}
+<td {$serial_style}>
+{$serial_value}
+</td>
+{END serial_fieldcolumn}
+{BEGIN service_tag_fieldcolumn}
+<td {$service_tag_style}>
+{$service_tag_value}
+</td>
+{END service_tag_fieldcolumn}
+{BEGIN proc_speed_fieldcolumn}
+<td {$proc_speed_style}>
+{$proc_speed_value}
+</td>
+{END proc_speed_fieldcolumn}
+{BEGIN proc_type_fieldcolumn}
+<td {$proc_type_style}>
+{$proc_type_value}
+</td>
+{END proc_type_fieldcolumn}
+{BEGIN ram_fieldcolumn}
+<td {$ram_style}>
+{$ram_value}
+</td>
+{END ram_fieldcolumn}
+{BEGIN disk_size_fieldcolumn}
+<td {$disk_size_style}>
+{$disk_size_value}
+</td>
+{END disk_size_fieldcolumn}
+{BEGIN optical_drive_fieldcolumn}
+<td {$optical_drive_style}>
+{$optical_drive_value}
+</td>
+{END optical_drive_fieldcolumn}
+{BEGIN display_model_fieldcolumn}
+<td {$display_model_style}>
+{$display_model_value}
+</td>
+{END display_model_fieldcolumn}
+{BEGIN display_size_fieldcolumn}
+<td {$display_size_style}>
+{$display_size_value}
+</td>
+{END display_size_fieldcolumn}
+{BEGIN display_asset_fieldcolumn}
+<td {$display_asset_style}>
+{$display_asset_value}
+</td>
+{END display_asset_fieldcolumn}
+{BEGIN display_serial_fieldcolumn}
+<td {$display_serial_style}>
+{$display_serial_value}
+</td>
+{END display_serial_fieldcolumn}
+{BEGIN notes_fieldcolumn}
+<td {$notes_style}>
+{$notes_value}
+</td>
+{END notes_fieldcolumn}
+{BEGIN last_updated_fieldcolumn}
+<td {$last_updated_style}>
+{$last_updated_value}
+</td>
+{END last_updated_fieldcolumn}
+{BEGIN uname_fieldcolumn}
+<td {$uname_style}>
+{$uname_value}
+</td>
+{END uname_fieldcolumn}
+{BEGIN lname_fieldcolumn}
+<td {$lname_style}>
+{$lname_value}
+</td>
+{END lname_fieldcolumn}
+{BEGIN dept_fieldcolumn}
+<td {$dept_style}>
+{$dept_value}
+</td>
+{END dept_fieldcolumn}
+{BEGIN mach_name_fieldcolumn}
+<td {$mach_name_style}>
+{$mach_name_value}
+</td>
+{END mach_name_fieldcolumn}
+{BEGIN ip_addr_fieldcolumn}
+<td {$ip_addr_style}>
+{$ip_addr_value}
+</td>
+{END ip_addr_fieldcolumn}
+{BEGIN mac_addr_fieldcolumn}
+<td {$mac_addr_style}>
+{$mac_addr_value}
+</td>
+{END mac_addr_fieldcolumn}
+{BEGIN endrecord_block}
+<td class="gridspacing">&nbsp;</td>
+{END endrecord_block}
+{END grid_record}
+</tr>
+{END grid_row}
+<!-- totals row -->
+</table>
+{END grid_block}
+{$footer}
+{END page}
+{END body}
+</body>
+</html>

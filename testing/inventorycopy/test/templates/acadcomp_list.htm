@@ -1,0 +1,695 @@
+<html>
+<head>
+<title>Acadcomp</title>
+<link REL="stylesheet" href="include/style.css" type="text/css">
+<!--[if IE]>
+<link REL="stylesheet" href="include/styleIE.css" type="text/css">
+<![endif]-->
+{BEGIN style_block}
+<style>
+#mastertable_block{$id} {margin-left:50px;margin-top:10px}
+#toplinks_block{$id} {width:100%; text-align:right;padding:3px}
+#toplinks_block{$id} * {padding:0px 10px;}
+#left_block{$id} { position:absolute;width:200px; left:10px; overflow:hidden;}
+#search_records_block{$id} {width:100%;}
+#search_records_block{$id} > * {vertical-align:middle;}
+#search_records_block{$id} select {margin:0px 0px;}
+#login_block{$id},#languages_block{$id} {padding:10px; margin-bottom:3px}
+#login_block{$id} div {margin-left:0px; padding:5px 0px;}
+#menu_block{$id} {padding:10px; margin-bottom:3px}
+#menu_block{$id} * {list-style-type:none;margin-left:5px; padding:5px 0px;}
+#menu_block{$id} IMG {vertical-align:middle;}
+#records_block{$id} {margin-left:203px;}
+#recordcontrols_block{$id} {padding:10px 10px;}
+#record_controls{$id} > *,#newrecord_controls > *  {margin:2px 2px;vertical-align:middle;}
+#grid_block{$id} {margin-top:2px;}
+.grid_recordheader {padding:0 5px 5px}
+.grid_recordheader * {margin:0px 5px; vertical-align:middle}
+form#frmAdmin{$id} {display:inline;}
+body {margin-left:10px;}
+</style>
+{END style_block}
+</head>
+<body topmargin=5 {$bodyattrs}>
+{BEGIN body}
+{$header}
+
+{BEGIN toplinks_block}
+<div id="toplinks_block{$id}">
+{BEGIN print_link}
+<a target="_blank" href="acadcomp_print.php" class="tablelinks3">Printer-friendly version</a>
+{END print_link}
+{BEGIN printall_link}
+<a target="_blank" href="acadcomp_print.php?all=1" class="tablelinks3">Print all pages</a>
+{END printall_link}
+
+{BEGIN asearch_link}
+<a href="acadcomp_search.php" class="tablelinks3">Advanced search</a>
+{END asearch_link}
+
+{BEGIN export_link}
+<a target="_blank" href="acadcomp_export.php" class="tablelinks3">Export results</a>
+{END export_link}
+
+{BEGIN import_link}
+<a href="acadcomp_import.php" class="tablelinks3">Import</a>
+{END import_link}
+</div>
+{END toplinks_block}
+
+{BEGIN search_records_block} 
+<div id="search_records_block{$id}" class="linedownbody main_table2 toplist">
+<img src="include/img/arrow_topmenu.gif" align="absmiddle">
+{BEGIN searchform}
+<span id="searchform{$id}" align="absmiddle">
+<b>Search for: </b> &nbsp;&nbsp;&nbsp;
+{BEGIN searchform_field}
+<select id="ctlSearchField{$id}">
+<option value="">Any field</option>
+<option value="record_id" {$record_id_searchfieldoption}>Record Id</option>
+<option value="campus" {$campus_searchfieldoption}>Campus</option>
+<option value="bldg" {$bldg_searchfieldoption}>Bldg</option>
+<option value="floor" {$floor_searchfieldoption}>Floor</option>
+<option value="room" {$room_searchfieldoption}>Room</option>
+<option value="labselect" {$labselect_searchfieldoption}>Labselect</option>
+<option value="mach_type" {$mach_type_searchfieldoption}>Mach Type</option>
+<option value="platform" {$platform_searchfieldoption}>Platform</option>
+<option value="model" {$model_searchfieldoption}>Model</option>
+<option value="other_model" {$other_model_searchfieldoption}>Other Model</option>
+<option value="asset_tag" {$asset_tag_searchfieldoption}>Asset Tag</option>
+<option value="serial" {$serial_searchfieldoption}>Serial</option>
+<option value="service_tag" {$service_tag_searchfieldoption}>Service Tag</option>
+<option value="proc_speed" {$proc_speed_searchfieldoption}>Proc Speed</option>
+<option value="proc_type" {$proc_type_searchfieldoption}>Proc Type</option>
+<option value="ram" {$ram_searchfieldoption}>Ram</option>
+<option value="disk_size" {$disk_size_searchfieldoption}>Disk Size</option>
+<option value="optical_drive" {$optical_drive_searchfieldoption}>Optical Drive</option>
+<option value="display_model" {$display_model_searchfieldoption}>Display Model</option>
+<option value="display_size" {$display_size_searchfieldoption}>Display Size</option>
+<option value="display_asset" {$display_asset_searchfieldoption}>Display Asset</option>
+<option value="display_serial" {$display_serial_searchfieldoption}>Display Serial</option>
+<option value="notes" {$notes_searchfieldoption}>Notes</option>
+<option value="last_updated" {$last_updated_searchfieldoption}>Last Updated</option>
+<option value="uname" {$uname_searchfieldoption}>Uname</option>
+<option value="lname" {$lname_searchfieldoption}>Lname</option>
+<option value="dept" {$dept_searchfieldoption}>Dept</option>
+<option value="mach_name" {$mach_name_searchfieldoption}>Mach Name</option>
+<option value="ip_addr" {$ip_addr_searchfieldoption}>Ip Addr</option>
+<option value="mac_addr" {$mac_addr_searchfieldoption}>Mac Addr</option>
+</select>
+{END searchform_field}
+&nbsp;
+{BEGIN searchform_option}
+<select id="ctlSearchOption{$id}">
+<option value="Contains" {$Contains_searchtypeoption}>Contains</option>
+<option value="Equals" {$Equals_searchtypeoption}>Equals</option>
+<option value="Starts with ..." {$Starts_with_____searchtypeoption}>Starts with ...</option>
+<option value="More than ..." {$More_than_____searchtypeoption}>More than ...</option>
+<option value="Less than ..." {$Less_than_____searchtypeoption}>Less than ...</option>
+<option value="Equal or more than ..." {$Equal_or_more_than_____searchtypeoption}>Equal or more than ...</option>
+<option value="Equal or less than ..." {$Equal_or_less_than_____searchtypeoption}>Equal or less than ...</option>
+<option value="Empty" {$Empty_searchtypeoption}>Empty</option>
+</select>
+{END searchform_option}
+&nbsp;&nbsp;&nbsp;&nbsp;
+{BEGIN searchform_text}
+<input type="text" size=20 {$searchfor_attrs}>
+{END searchform_text}
+&nbsp;
+{BEGIN searchform_search}
+<span class="buttonborder"><input type="button" class="button" value="Search" {$searchbutton_attrs}></span>
+{END searchform_search}
+&nbsp;	
+{BEGIN searchform_showall}	
+<span class="buttonborder"><input type="button" class="button" value="Show all" {$showallbutton_attrs}></span>
+{END searchform_showall}
+</span>
+{END searchform}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{BEGIN details_block}
+<span>Details found: <b>{$records_found}</b>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+{END details_block}
+{BEGIN pages_block}
+<span>Page <b>{$page}</b> of <b>{$maxpages}</b></span>
+{END pages_block}
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+{BEGIN recordspp_block}
+<span id="recordspp_block{$id}">
+Records Per Page:
+<select {$recordspp_attrs}>
+<option value="10" {$rpp10_selected}>10</option>
+<option value="20" {$rpp20_selected}>20</option>
+<option value="30" {$rpp30_selected}>30</option>
+<option value="50" {$rpp50_selected}>50</option>
+<option value="100" {$rpp100_selected}>100</option>
+<option value="500" {$rpp500_selected}>500</option>
+</select>
+</span>
+{END recordspp_block}
+</div>
+{END search_records_block} 
+
+<div id="left_block{$id}">
+
+<div id="login_block{$id}" class="blackshade toplist">
+<div style="font-weight:normal;">Logged on as&nbsp;<b>{$username}</b></div>
+<br><a class="tablelinks" href="login.php?a=logout">Log out</a>
+<!-- Permissions -->
+
+</div>
+
+</div>
+
+<div id="records_block{$id}" class="linedownbody">
+{BEGIN recordcontrols_block}
+<div id="recordcontrols_block{$id}" class="main_table2" >
+
+{BEGIN newrecord_controls}
+<span id="newrecord_controls{$id}">
+{BEGIN add_link}
+<span class=buttonborder><input type=button class="button" value="Add new" {$addlink_attrs}></span>
+{END add_link}
+
+{BEGIN inlineadd_link}
+<span class=buttonborder><input type=button class="button" value="Inline Add" {$inlineaddlink_attrs} ></span>
+{END inlineadd_link}
+</span>
+{END newrecord_controls}
+
+{BEGIN record_controls}
+<span id="record_controls{$id}">
+
+{BEGIN editselected_link}
+<span class=buttonborder ><input type=button class="button" value="Edit selected" {$editselectedlink_attrs}></span>
+{END editselected_link}
+{BEGIN saveall_link}
+<span class=buttonborder><input type=button class="button" value="Save all" {$savealllink_attrs}></span>
+{END saveall_link}
+{BEGIN cancelall_link}
+<span class=buttonborder><input type=button class="button" value="Cancel" {$cancelalllink_attrs}></span>
+{END cancelall_link}
+
+{BEGIN delete_link}
+<span class=buttonborder><input type=button class="button" value="Delete selected" {$deletelink_attrs}></span>
+{END delete_link}
+
+{BEGIN exportselected_link}
+<span class=buttonborder><input type=button class="button" value="Export selected" {$exportselectedlink_attrs}></span>
+{END exportselected_link}
+
+{BEGIN printselected_link}
+<span class=buttonborder><input type=button class="button" value="Print selected" {$printselectedlink_attrs}></span>
+{END printselected_link}
+</span>
+{END record_controls}
+</div>
+{END recordcontrols_block}
+<div class="message" id="usermessage{$id}" style="background:white;"></div>
+
+
+{BEGIN grid_block}
+<div id="grid_block{$id}" class="linedownbody">
+<table name="maintable" class="data" cellspacing=0 cellpadding=5 border=0>
+{BEGIN grid_header}
+<tr class="blackshade" valign="top">
+{BEGIN record_header}
+
+{BEGIN edit_column}
+<td width=50 align="center" class="headerlist"><img src="include/img/icon_edit.gif"></td>
+{END edit_column}
+
+{BEGIN inlineedit_column}
+<td width=100 align="center" class="headerlist"><img src="include/img/icon_edit.gif"></td>
+{END inlineedit_column}
+
+
+{BEGIN view_column}
+<td width=50 align="center" class="headerlist"><img src="include/img/icon_view.gif"></td>
+{END view_column}
+
+{BEGIN checkbox_column}
+<td width=50 align="center" class="headerlist">
+<input type=checkbox {$checkboxheader_attrs}>
+</td>
+{END checkbox_column}
+
+
+{BEGIN record_id_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN record_id_fieldheader}
+<a class="tablelinks" {$record_id_orderlinkattrs}>
+Record Id</a>{$record_id_orderimage}
+{END record_id_fieldheader}
+</td>
+{END record_id_fieldheadercolumn}
+{BEGIN campus_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN campus_fieldheader}
+<a class="tablelinks" {$campus_orderlinkattrs}>
+Campus</a>{$campus_orderimage}
+{END campus_fieldheader}
+</td>
+{END campus_fieldheadercolumn}
+{BEGIN bldg_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN bldg_fieldheader}
+<a class="tablelinks" {$bldg_orderlinkattrs}>
+Bldg</a>{$bldg_orderimage}
+{END bldg_fieldheader}
+</td>
+{END bldg_fieldheadercolumn}
+{BEGIN floor_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN floor_fieldheader}
+<a class="tablelinks" {$floor_orderlinkattrs}>
+Floor</a>{$floor_orderimage}
+{END floor_fieldheader}
+</td>
+{END floor_fieldheadercolumn}
+{BEGIN room_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN room_fieldheader}
+<a class="tablelinks" {$room_orderlinkattrs}>
+Room</a>{$room_orderimage}
+{END room_fieldheader}
+</td>
+{END room_fieldheadercolumn}
+{BEGIN labselect_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN labselect_fieldheader}
+<a class="tablelinks" {$labselect_orderlinkattrs}>
+Labselect</a>{$labselect_orderimage}
+{END labselect_fieldheader}
+</td>
+{END labselect_fieldheadercolumn}
+{BEGIN mach_type_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN mach_type_fieldheader}
+<a class="tablelinks" {$mach_type_orderlinkattrs}>
+Mach Type</a>{$mach_type_orderimage}
+{END mach_type_fieldheader}
+</td>
+{END mach_type_fieldheadercolumn}
+{BEGIN platform_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN platform_fieldheader}
+<a class="tablelinks" {$platform_orderlinkattrs}>
+Platform</a>{$platform_orderimage}
+{END platform_fieldheader}
+</td>
+{END platform_fieldheadercolumn}
+{BEGIN model_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN model_fieldheader}
+<a class="tablelinks" {$model_orderlinkattrs}>
+Model</a>{$model_orderimage}
+{END model_fieldheader}
+</td>
+{END model_fieldheadercolumn}
+{BEGIN other_model_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN other_model_fieldheader}
+<a class="tablelinks" {$other_model_orderlinkattrs}>
+Other Model</a>{$other_model_orderimage}
+{END other_model_fieldheader}
+</td>
+{END other_model_fieldheadercolumn}
+{BEGIN asset_tag_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN asset_tag_fieldheader}
+<a class="tablelinks" {$asset_tag_orderlinkattrs}>
+Asset Tag</a>{$asset_tag_orderimage}
+{END asset_tag_fieldheader}
+</td>
+{END asset_tag_fieldheadercolumn}
+{BEGIN serial_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN serial_fieldheader}
+<a class="tablelinks" {$serial_orderlinkattrs}>
+Serial</a>{$serial_orderimage}
+{END serial_fieldheader}
+</td>
+{END serial_fieldheadercolumn}
+{BEGIN service_tag_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN service_tag_fieldheader}
+<a class="tablelinks" {$service_tag_orderlinkattrs}>
+Service Tag</a>{$service_tag_orderimage}
+{END service_tag_fieldheader}
+</td>
+{END service_tag_fieldheadercolumn}
+{BEGIN proc_speed_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN proc_speed_fieldheader}
+<a class="tablelinks" {$proc_speed_orderlinkattrs}>
+Proc Speed</a>{$proc_speed_orderimage}
+{END proc_speed_fieldheader}
+</td>
+{END proc_speed_fieldheadercolumn}
+{BEGIN proc_type_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN proc_type_fieldheader}
+<a class="tablelinks" {$proc_type_orderlinkattrs}>
+Proc Type</a>{$proc_type_orderimage}
+{END proc_type_fieldheader}
+</td>
+{END proc_type_fieldheadercolumn}
+{BEGIN ram_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN ram_fieldheader}
+<a class="tablelinks" {$ram_orderlinkattrs}>
+Ram</a>{$ram_orderimage}
+{END ram_fieldheader}
+</td>
+{END ram_fieldheadercolumn}
+{BEGIN disk_size_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN disk_size_fieldheader}
+<a class="tablelinks" {$disk_size_orderlinkattrs}>
+Disk Size</a>{$disk_size_orderimage}
+{END disk_size_fieldheader}
+</td>
+{END disk_size_fieldheadercolumn}
+{BEGIN optical_drive_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN optical_drive_fieldheader}
+<a class="tablelinks" {$optical_drive_orderlinkattrs}>
+Optical Drive</a>{$optical_drive_orderimage}
+{END optical_drive_fieldheader}
+</td>
+{END optical_drive_fieldheadercolumn}
+{BEGIN display_model_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN display_model_fieldheader}
+<a class="tablelinks" {$display_model_orderlinkattrs}>
+Display Model</a>{$display_model_orderimage}
+{END display_model_fieldheader}
+</td>
+{END display_model_fieldheadercolumn}
+{BEGIN display_size_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN display_size_fieldheader}
+<a class="tablelinks" {$display_size_orderlinkattrs}>
+Display Size</a>{$display_size_orderimage}
+{END display_size_fieldheader}
+</td>
+{END display_size_fieldheadercolumn}
+{BEGIN display_asset_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN display_asset_fieldheader}
+<a class="tablelinks" {$display_asset_orderlinkattrs}>
+Display Asset</a>{$display_asset_orderimage}
+{END display_asset_fieldheader}
+</td>
+{END display_asset_fieldheadercolumn}
+{BEGIN display_serial_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN display_serial_fieldheader}
+<a class="tablelinks" {$display_serial_orderlinkattrs}>
+Display Serial</a>{$display_serial_orderimage}
+{END display_serial_fieldheader}
+</td>
+{END display_serial_fieldheadercolumn}
+{BEGIN notes_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN notes_fieldheader}
+<a class="tablelinks" {$notes_orderlinkattrs}>
+Notes</a>{$notes_orderimage}
+{END notes_fieldheader}
+</td>
+{END notes_fieldheadercolumn}
+{BEGIN last_updated_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN last_updated_fieldheader}
+<a class="tablelinks" {$last_updated_orderlinkattrs}>
+Last Updated</a>{$last_updated_orderimage}
+{END last_updated_fieldheader}
+</td>
+{END last_updated_fieldheadercolumn}
+{BEGIN uname_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN uname_fieldheader}
+<a class="tablelinks" {$uname_orderlinkattrs}>
+Uname</a>{$uname_orderimage}
+{END uname_fieldheader}
+</td>
+{END uname_fieldheadercolumn}
+{BEGIN lname_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN lname_fieldheader}
+<a class="tablelinks" {$lname_orderlinkattrs}>
+Lname</a>{$lname_orderimage}
+{END lname_fieldheader}
+</td>
+{END lname_fieldheadercolumn}
+{BEGIN dept_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN dept_fieldheader}
+<a class="tablelinks" {$dept_orderlinkattrs}>
+Dept</a>{$dept_orderimage}
+{END dept_fieldheader}
+</td>
+{END dept_fieldheadercolumn}
+{BEGIN mach_name_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN mach_name_fieldheader}
+<a class="tablelinks" {$mach_name_orderlinkattrs}>
+Mach Name</a>{$mach_name_orderimage}
+{END mach_name_fieldheader}
+</td>
+{END mach_name_fieldheadercolumn}
+{BEGIN ip_addr_fieldheadercolumn}
+<td class="headerlist" style="vertical-align:baseline;">
+{BEGIN ip_addr_fieldheader}
+<a class="tablelinks" {$ip_addr_orderlinkattrs}>
+Ip Addr</a>{$ip_addr_orderimage}
+{END ip_addr_fieldheader}
+</td>
+{END ip_addr_fieldheadercolumn}
+{BEGIN mac_addr_fieldheadercolumn}
+<td class="headerlist_right" style="vertical-align:baseline;">
+{BEGIN mac_addr_fieldheader}
+<a class="tablelinks" {$mac_addr_orderlinkattrs}>
+Mac Addr</a>{$mac_addr_orderimage}
+{END mac_addr_fieldheader}
+</td>
+{END mac_addr_fieldheadercolumn}
+{BEGIN endrecordheader_block}
+<td class="body2"></td>
+{END endrecordheader_block}
+{END record_header}
+</tr>
+{END grid_header}
+
+{BEGIN grid_row}
+<tr valign="top" {$rowstyle} {$rowattrs}> 
+{BEGIN grid_record}
+
+{BEGIN edit_column}
+<td align="center" valign=middle class=borderbody>
+{BEGIN edit_link}
+<a class=tablelinks {$editlink_attrs}>Edit</a>
+{END edit_link}
+</td>
+{END edit_column}
+
+{BEGIN inlineedit_column}
+<td align="center" valign=middle class=borderbody>
+{BEGIN inlineedit_link}
+<a class=tablelinks {$inlineeditlink_attrs}>Inline Edit</a>
+{END inlineedit_link}
+</td>
+{END inlineedit_column}
+
+
+{BEGIN view_column}
+<td align="center" valign=middle class=borderbody>
+{BEGIN view_link}
+<a class=tablelinks {$viewlink_attrs}>View</a>
+{END view_link}
+</td>
+{END view_column}
+
+{BEGIN checkbox_column}
+<td align="center" valign=middle class=borderbody>
+{BEGIN checkbox}
+<input type=checkbox {$checkbox_attrs}>
+{END checkbox}
+</td>
+{END checkbox_column}
+
+
+{BEGIN record_id_fieldcolumn}
+<td valign=middle class=borderbody align=center {$record_id_style}>
+{$record_id_value}
+</td>
+{END record_id_fieldcolumn}
+{BEGIN campus_fieldcolumn}
+<td valign=middle class=borderbody align=center {$campus_style}>
+{$campus_value}
+</td>
+{END campus_fieldcolumn}
+{BEGIN bldg_fieldcolumn}
+<td valign=middle class=borderbody align=center {$bldg_style}>
+{$bldg_value}
+</td>
+{END bldg_fieldcolumn}
+{BEGIN floor_fieldcolumn}
+<td valign=middle class=borderbody align=center {$floor_style}>
+{$floor_value}
+</td>
+{END floor_fieldcolumn}
+{BEGIN room_fieldcolumn}
+<td valign=middle class=borderbody align=center {$room_style}>
+{$room_value}
+</td>
+{END room_fieldcolumn}
+{BEGIN labselect_fieldcolumn}
+<td valign=middle class=borderbody align=center {$labselect_style}>
+{$labselect_value}
+</td>
+{END labselect_fieldcolumn}
+{BEGIN mach_type_fieldcolumn}
+<td valign=middle class=borderbody align=center {$mach_type_style}>
+{$mach_type_value}
+</td>
+{END mach_type_fieldcolumn}
+{BEGIN platform_fieldcolumn}
+<td valign=middle class=borderbody align=center {$platform_style}>
+{$platform_value}
+</td>
+{END platform_fieldcolumn}
+{BEGIN model_fieldcolumn}
+<td valign=middle class=borderbody align=center {$model_style}>
+{$model_value}
+</td>
+{END model_fieldcolumn}
+{BEGIN other_model_fieldcolumn}
+<td valign=middle class=borderbody align=center {$other_model_style}>
+{$other_model_value}
+</td>
+{END other_model_fieldcolumn}
+{BEGIN asset_tag_fieldcolumn}
+<td valign=middle class=borderbody align=center {$asset_tag_style}>
+{$asset_tag_value}
+</td>
+{END asset_tag_fieldcolumn}
+{BEGIN serial_fieldcolumn}
+<td valign=middle class=borderbody align=center {$serial_style}>
+{$serial_value}
+</td>
+{END serial_fieldcolumn}
+{BEGIN service_tag_fieldcolumn}
+<td valign=middle class=borderbody align=center {$service_tag_style}>
+{$service_tag_value}
+</td>
+{END service_tag_fieldcolumn}
+{BEGIN proc_speed_fieldcolumn}
+<td valign=middle class=borderbody align=center {$proc_speed_style}>
+{$proc_speed_value}
+</td>
+{END proc_speed_fieldcolumn}
+{BEGIN proc_type_fieldcolumn}
+<td valign=middle class=borderbody align=center {$proc_type_style}>
+{$proc_type_value}
+</td>
+{END proc_type_fieldcolumn}
+{BEGIN ram_fieldcolumn}
+<td valign=middle class=borderbody align=center {$ram_style}>
+{$ram_value}
+</td>
+{END ram_fieldcolumn}
+{BEGIN disk_size_fieldcolumn}
+<td valign=middle class=borderbody align=center {$disk_size_style}>
+{$disk_size_value}
+</td>
+{END disk_size_fieldcolumn}
+{BEGIN optical_drive_fieldcolumn}
+<td valign=middle class=borderbody align=center {$optical_drive_style}>
+{$optical_drive_value}
+</td>
+{END optical_drive_fieldcolumn}
+{BEGIN display_model_fieldcolumn}
+<td valign=middle class=borderbody align=center {$display_model_style}>
+{$display_model_value}
+</td>
+{END display_model_fieldcolumn}
+{BEGIN display_size_fieldcolumn}
+<td valign=middle class=borderbody align=center {$display_size_style}>
+{$display_size_value}
+</td>
+{END display_size_fieldcolumn}
+{BEGIN display_asset_fieldcolumn}
+<td valign=middle class=borderbody align=center {$display_asset_style}>
+{$display_asset_value}
+</td>
+{END display_asset_fieldcolumn}
+{BEGIN display_serial_fieldcolumn}
+<td valign=middle class=borderbody align=center {$display_serial_style}>
+{$display_serial_value}
+</td>
+{END display_serial_fieldcolumn}
+{BEGIN notes_fieldcolumn}
+<td valign=middle class=borderbody align=center {$notes_style}>
+{$notes_value}
+</td>
+{END notes_fieldcolumn}
+{BEGIN last_updated_fieldcolumn}
+<td valign=middle class=borderbody align=center {$last_updated_style}>
+{$last_updated_value}
+</td>
+{END last_updated_fieldcolumn}
+{BEGIN uname_fieldcolumn}
+<td valign=middle class=borderbody align=center {$uname_style}>
+{$uname_value}
+</td>
+{END uname_fieldcolumn}
+{BEGIN lname_fieldcolumn}
+<td valign=middle class=borderbody align=center {$lname_style}>
+{$lname_value}
+</td>
+{END lname_fieldcolumn}
+{BEGIN dept_fieldcolumn}
+<td valign=middle class=borderbody align=center {$dept_style}>
+{$dept_value}
+</td>
+{END dept_fieldcolumn}
+{BEGIN mach_name_fieldcolumn}
+<td valign=middle class=borderbody align=center {$mach_name_style}>
+{$mach_name_value}
+</td>
+{END mach_name_fieldcolumn}
+{BEGIN ip_addr_fieldcolumn}
+<td valign=middle class=borderbody align=center {$ip_addr_style}>
+{$ip_addr_value}
+</td>
+{END ip_addr_fieldcolumn}
+{BEGIN mac_addr_fieldcolumn}
+<td valign=middle class=borderbody align=center {$mac_addr_style}>
+{$mac_addr_value}
+</td>
+{END mac_addr_fieldcolumn}
+
+{BEGIN endrecord_block}
+<td class="body2" {$endrecordblock_attrs}></td>
+{END endrecord_block}
+{END grid_record}
+</tr>
+{END grid_row}
+
+</table>
+</div>
+{END grid_block}
+{BEGIN pagination_block}
+<p align=center class=toplist >{$pagination}</p>
+{END pagination_block}
+
+{BEGIN message_block}
+<p align=center valign=middle class=toplist><b>{$message}</b></p>
+{END message_block}
+</div>
+{$footer}
+{END body}
+</body>
+</html>

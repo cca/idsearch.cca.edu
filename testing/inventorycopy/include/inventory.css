@@ -1,0 +1,230 @@
+/* CCA Inventory CSS */
+
+body	{
+	background-color: #999999;
+	color: #000000;
+	font-family: 'Lucida Grande', Geneva, Arial, Verdana, helvetica, sans-serif;
+	font-size: small;
+	padding: 0;
+	margin: 0;
+	}	
+
+#header	{
+	background-color: #413839;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	line-height: 1.3em;
+	height: 85px;
+	text-align: left;
+	}
+
+.nav	{
+	width: 97%;
+	height: 83px;
+	}
+
+table.frontpage	td {
+	border-style: ridge;
+	border-color: #413839;
+	border-width: 9px;
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	padding-right: 2em;
+	padding-left: 2em;
+	vertical-align: middle;
+}
+
+#front	{
+	vertical-align: middle;
+	margin: 175px 0 0 250px;
+}
+	
+#logo	{
+	text-align: left;
+	font-size: 1.4em;
+	vertical-align: middle;
+	color: #CC6600
+	}
+
+#updatestrip	{
+	background-color: #CF003E;
+	margin: 0;
+	padding: 1em 0em;
+	font-size: 1.2em;
+	text-align: left;
+	vertical-align: middle;
+	}
+	
+#addstrip	{
+	background-color: #CC6600;
+	margin: 0;
+	padding: 1em 0em;
+	font-size: 1.2em;
+	text-align: left;
+	margin: 0em 2em 1em 2em
+	vertical-align: middle;
+	}
+	
+#frontlinks	{
+	color: #CC6600;
+	font-size: 1.1em;
+	text-align: right;
+	vertical-align: middle;
+	}
+
+
+#links	{
+	color: #CC6600;
+	font-size: 1em;
+	text-align: right;
+	vertical-align: middle;
+	}
+	
+#content	{
+	width: 98%;
+	margin: 0em 2em 1em 2em;
+	}
+	
+#users		{
+	background-color: #CC6600;
+	padding: .5em;
+	font-size: .95em;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+	border-bottom-width: 2px;
+	border-right-style: solid;
+	border-right-color: #000000;
+	border-right-width: 2px;
+	}
+	
+h1	{
+	font-size: 30;
+	font-weight: bold;
+	color: #CC6600;
+	}
+	
+h4 {
+	font-size: 13;
+	color: #CC6600;
+	}
+	
+/* Results table CSS */	
+table.form td {
+ 	padding-top: 0em;
+	padding-right: 5em;
+	text-decoration: none;
+}
+
+/* Results table CSS */	
+table.sortable th {
+  border-width: 0px 1px 1px 1px;
+  text-decoration: none;
+}
+	
+table	{
+	border: thin;
+	border-color: #000000;
+}
+	
+table.sortable tbody	{
+	overflow: scroll;
+	height: 38em;
+}
+	
+.row0 {
+    background-color: #CFCFCF;
+}
+
+.row1 {
+    background-color: #CC6600;
+}
+
+.tRowA {
+    background-color: #CFCFCF;
+}
+
+.tRowB {
+    background-color: #CC6600;
+}
+
+#results	{
+	padding: .4em;
+	font-size: .8em;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+	border-bottom-width: 2px;
+	border-right-style: solid;
+	border-right-color: #000000;
+	border-right-width: 2px;
+	}
+
+/* Links CSS */
+#results a:link {
+	color: #000000;
+	text-decoration: underline;
+	}
+#results a:active {
+	color: #000000;
+	text-decoration: underline;
+	}
+#results a:visited {
+	color: #000000;
+	text-decoration: underline;
+	}
+#results a:hover {
+	color: #FF9900;
+	text-decoration: none;
+	}
+	
+#logo a:link {
+	color: #CC6600;
+	text-decoration: none;
+	}
+#logo a:active {
+	color: #CC6600;
+	text-decoration: none;
+	}
+#logo a:visited {
+	color: #CC6600;
+	text-decoration: none;
+	}
+#logo a:hover {
+	color: #CC6600;
+	text-decoration: none;
+	}
+	
+a:link {
+	color: #FF9900;
+	text-decoration: underline;
+	}
+a:active {
+	color: #FF9900;
+	text-decoration: underline;
+	}
+a:visited {
+	color: #FF9900;
+	text-decoration: underline;
+	}
+a:hover {
+	color: #000000;
+	text-decoration: none;
+	}
+	
+.frontpage a:link {
+	color: #000000;
+	text-decoration: none;
+	}
+.frontpage a:active {
+	color: #000000;
+	text-decoration: none;
+	}
+.frontpage a:visited {
+	color: #000000;
+	text-decoration: none;
+	}
+.frontpage a:hover {
+	color: #CC6600;
+	text-decoration: none;
+	}

@@ -1,0 +1,5 @@
+AuthName "CCA Machine Inventory Database"
+AuthType Basic
+AuthUserFile /Sites/idsearch.cca.edu/documents/inventory/.htpasswd
+AuthGroupFile /dev/null
+Require valid-user

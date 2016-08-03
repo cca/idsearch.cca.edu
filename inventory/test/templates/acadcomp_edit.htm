@@ -1,0 +1,227 @@
+<html>
+<head><title>Acadcomp</title>
+<link REL="stylesheet" href="include/style.css" type="text/css">
+<!--[if IE]>
+<link REL="stylesheet" href="include/styleIE.css" type="text/css">
+<![endif]-->
+<style>
+#center_block {width:400;margin:0 auto;}
+#contents_block {text-align:center;width:100%}
+#header_block {width:100%;white-space:nowrap;height:31px;padding-top:5px;text-align:center}
+#fields_block {width:100%}
+#fields_block td {padding-left:10px}
+#buttons_block {width:100%;padding-bottom:5px;text-align:center}
+#required_block {text-align:left;padding:5px}
+#message_block {padding:5px 0px;text-align:center;}
+</style>
+</head>
+
+<body>
+{$header}
+{BEGIN body}
+<table align=center id="center_block"><tr><td>
+<div class="upeditmenu" id="header_block">
+Acadcomp, Edit record [
+Record Id: {$show_key1}
+]
+</div>
+{BEGIN message_block}
+<DIV id=message_block class=downedit>
+{$message}
+</div>
+{END message_block}
+
+<table cellpadding=4 cellspacing=0 border=0 id="fields_block">
+{BEGIN campus_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Campus</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$campus_editcontrol}
+    </td></tr>
+{END campus_fieldblock}
+{BEGIN bldg_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Bldg</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$bldg_editcontrol}
+    </td></tr>
+{END bldg_fieldblock}
+{BEGIN floor_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Floor</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$floor_editcontrol}
+    </td></tr>
+{END floor_fieldblock}
+{BEGIN room_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Room</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$room_editcontrol}
+    </td></tr>
+{END room_fieldblock}
+{BEGIN labselect_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Labselect</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$labselect_editcontrol}
+    </td></tr>
+{END labselect_fieldblock}
+{BEGIN mach_type_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Mach Type</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$mach_type_editcontrol}
+    </td></tr>
+{END mach_type_fieldblock}
+{BEGIN platform_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Platform</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$platform_editcontrol}
+    </td></tr>
+{END platform_fieldblock}
+{BEGIN model_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Model</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$model_editcontrol}
+    </td></tr>
+{END model_fieldblock}
+{BEGIN other_model_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Other Model</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$other_model_editcontrol}
+    </td></tr>
+{END other_model_fieldblock}
+{BEGIN asset_tag_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Asset Tag</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$asset_tag_editcontrol}
+    </td></tr>
+{END asset_tag_fieldblock}
+{BEGIN serial_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Serial</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$serial_editcontrol}
+    </td></tr>
+{END serial_fieldblock}
+{BEGIN service_tag_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Service Tag</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$service_tag_editcontrol}
+    </td></tr>
+{END service_tag_fieldblock}
+{BEGIN proc_speed_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Proc Speed</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$proc_speed_editcontrol}
+    </td></tr>
+{END proc_speed_fieldblock}
+{BEGIN proc_type_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Proc Type</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$proc_type_editcontrol}
+    </td></tr>
+{END proc_type_fieldblock}
+{BEGIN ram_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Ram</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$ram_editcontrol}
+    </td></tr>
+{END ram_fieldblock}
+{BEGIN disk_size_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Disk Size</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$disk_size_editcontrol}
+    </td></tr>
+{END disk_size_fieldblock}
+{BEGIN optical_drive_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Optical Drive</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$optical_drive_editcontrol}
+    </td></tr>
+{END optical_drive_fieldblock}
+{BEGIN display_model_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Display Model</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$display_model_editcontrol}
+    </td></tr>
+{END display_model_fieldblock}
+{BEGIN display_size_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Display Size</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$display_size_editcontrol}
+    </td></tr>
+{END display_size_fieldblock}
+{BEGIN display_asset_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Display Asset</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$display_asset_editcontrol}
+    </td></tr>
+{END display_asset_fieldblock}
+{BEGIN display_serial_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Display Serial</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$display_serial_editcontrol}
+    </td></tr>
+{END display_serial_fieldblock}
+{BEGIN notes_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Notes</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$notes_editcontrol}
+    </td></tr>
+{END notes_fieldblock}
+{BEGIN last_updated_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Last Updated</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$last_updated_editcontrol}
+      &nbsp;<img src="images/icon_required.gif">
+  </td></tr>
+{END last_updated_fieldblock}
+{BEGIN uname_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Uname</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$uname_editcontrol}
+    </td></tr>
+{END uname_fieldblock}
+{BEGIN lname_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Lname</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$lname_editcontrol}
+    </td></tr>
+{END lname_fieldblock}
+{BEGIN dept_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Dept</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$dept_editcontrol}
+    </td></tr>
+{END dept_fieldblock}
+{BEGIN mach_name_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Mach Name</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$mach_name_editcontrol}
+    </td></tr>
+{END mach_name_fieldblock}
+{BEGIN ip_addr_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Ip Addr</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$ip_addr_editcontrol}
+    </td></tr>
+{END ip_addr_fieldblock}
+{BEGIN mac_addr_fieldblock}
+  <tr><td class=editshade_b width=150 style="padding-left:3px 20px;">Mac Addr</td>
+  <td width=250 class=editshade_lb style="padding:3px 10px;">
+    {$mac_addr_editcontrol}
+    </td></tr>
+{END mac_addr_fieldblock}
+</table>
+<div class="main_table2" id="buttons_block">
+<div id="required_block" class="toplist" ><img src="images/icon_required.gif"> - Required field</div>
+{BEGIN save_button}
+ <span class=buttonborder><input class=button type=submit value="Save"></span>
+{END save_button}
+{BEGIN reset_button}
+ <span class=buttonborder><input class=button type=reset value="Reset"></span>
+{END reset_button}
+{BEGIN back_button}
+ <span class=buttonborder><input class=button type=reset value="Back to list" {$backbutton_attrs}></span>
+{END back_button}
+</div>
+</td></tr></table>
+{END body}
+{$footer}
+</body>
+</html>

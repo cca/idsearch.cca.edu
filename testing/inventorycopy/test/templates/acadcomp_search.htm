@@ -1,0 +1,462 @@
+<html>
+<head>
+<title>Acadcomp: Advanced search page</title>
+<link REL="stylesheet" href="include/style.css" type="text/css">
+<!--[if IE]>
+<link REL="stylesheet" href="include/styleIE.css" type="text/css">
+<![endif]-->
+<style>
+#center_block {margin:0 auto;}
+#contents_block {text-align:center;}
+#header_block {white-space:nowrap;height:31px;padding-top:5px;}
+#main_block {padding:10px 0;}
+#inmain_block {margin:0 10px}
+#fields_block {width:100%}
+#buttons_block {width:100%;padding-bottom:5px}
+#required_block {text-align:left;padding:5px}
+#buttons_block > * {margin:0 2px}
+</style>
+<!--[if IE]>
+<style>
+#main_block {padding:10px 10;}
+#inmain_block {margin:0 0px}
+</style>
+<![endif]-->
+</head>
+<body bgcolor=white>
+{$header}
+{BEGIN body}	
+{BEGIN contents_block}
+<table align=center id="center_block"><tr><td id="contents_block">
+<div  class=tableheader id="header_block">
+Acadcomp - Advanced search
+</div>
+
+{BEGIN conditions_block}
+<DIV id=conditions_block class=header2>
+<span class=fieldname>Search for: </span>
+<input type="radio" name="type" {$all_checkbox}>All conditions
+&nbsp;&nbsp;&nbsp;
+<input type="radio" name="type" {$any_checkbox}>Any condition
+</div>
+{END conditions_block}
+
+<table cellpadding=4 cellspacing=0 border=0 id="fields_block">
+<tr valign=center class=blackshade>
+<td align=center valign=middle>&nbsp;</td>
+<td width=30 align=center valign=middle class=fieldname>NOT</td>
+<td colspan=3 align=center valign=middle>&nbsp; </td></tr>
+
+{BEGIN record_id_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Record Id
+	<td align=center><input type=checkbox {$record_id_notbox}></td>
+	<td>{$searchtype_record_id}</td>
+	
+	<td width=270>{$record_id_editcontrol}</td>
+
+	<td width=270><span id="second_record_id">
+	{$record_id_editcontrol1}
+	</span></td>
+</tr>
+{END record_id_fieldblock}
+{BEGIN campus_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Campus
+	<td align=center><input type=checkbox {$campus_notbox}></td>
+	<td>{$searchtype_campus}</td>
+	
+	<td width=270>{$campus_editcontrol}</td>
+
+	<td width=270><span id="second_campus">
+	{$campus_editcontrol1}
+	</span></td>
+</tr>
+{END campus_fieldblock}
+{BEGIN bldg_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Bldg
+	<td align=center><input type=checkbox {$bldg_notbox}></td>
+	<td>{$searchtype_bldg}</td>
+	
+	<td width=270>{$bldg_editcontrol}</td>
+
+	<td width=270><span id="second_bldg">
+	{$bldg_editcontrol1}
+	</span></td>
+</tr>
+{END bldg_fieldblock}
+{BEGIN floor_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Floor
+	<td align=center><input type=checkbox {$floor_notbox}></td>
+	<td>{$searchtype_floor}</td>
+	
+	<td width=270>{$floor_editcontrol}</td>
+
+	<td width=270><span id="second_floor">
+	{$floor_editcontrol1}
+	</span></td>
+</tr>
+{END floor_fieldblock}
+{BEGIN room_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Room
+	<td align=center><input type=checkbox {$room_notbox}></td>
+	<td>{$searchtype_room}</td>
+	
+	<td width=270>{$room_editcontrol}</td>
+
+	<td width=270><span id="second_room">
+	{$room_editcontrol1}
+	</span></td>
+</tr>
+{END room_fieldblock}
+{BEGIN labselect_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Labselect
+	<td align=center><input type=checkbox {$labselect_notbox}></td>
+	<td>{$searchtype_labselect}</td>
+	
+	<td width=270>{$labselect_editcontrol}</td>
+
+	<td width=270><span id="second_labselect">
+	{$labselect_editcontrol1}
+	</span></td>
+</tr>
+{END labselect_fieldblock}
+{BEGIN mach_type_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Mach Type
+	<td align=center><input type=checkbox {$mach_type_notbox}></td>
+	<td>{$searchtype_mach_type}</td>
+	
+	<td width=270>{$mach_type_editcontrol}</td>
+
+	<td width=270><span id="second_mach_type">
+	{$mach_type_editcontrol1}
+	</span></td>
+</tr>
+{END mach_type_fieldblock}
+{BEGIN platform_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Platform
+	<td align=center><input type=checkbox {$platform_notbox}></td>
+	<td>{$searchtype_platform}</td>
+	
+	<td width=270>{$platform_editcontrol}</td>
+
+	<td width=270><span id="second_platform">
+	{$platform_editcontrol1}
+	</span></td>
+</tr>
+{END platform_fieldblock}
+{BEGIN model_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Model
+	<td align=center><input type=checkbox {$model_notbox}></td>
+	<td>{$searchtype_model}</td>
+	
+	<td width=270>{$model_editcontrol}</td>
+
+	<td width=270><span id="second_model">
+	{$model_editcontrol1}
+	</span></td>
+</tr>
+{END model_fieldblock}
+{BEGIN other_model_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Other Model
+	<td align=center><input type=checkbox {$other_model_notbox}></td>
+	<td>{$searchtype_other_model}</td>
+	
+	<td width=270>{$other_model_editcontrol}</td>
+
+	<td width=270><span id="second_other_model">
+	{$other_model_editcontrol1}
+	</span></td>
+</tr>
+{END other_model_fieldblock}
+{BEGIN asset_tag_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Asset Tag
+	<td align=center><input type=checkbox {$asset_tag_notbox}></td>
+	<td>{$searchtype_asset_tag}</td>
+	
+	<td width=270>{$asset_tag_editcontrol}</td>
+
+	<td width=270><span id="second_asset_tag">
+	{$asset_tag_editcontrol1}
+	</span></td>
+</tr>
+{END asset_tag_fieldblock}
+{BEGIN serial_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Serial
+	<td align=center><input type=checkbox {$serial_notbox}></td>
+	<td>{$searchtype_serial}</td>
+	
+	<td width=270>{$serial_editcontrol}</td>
+
+	<td width=270><span id="second_serial">
+	{$serial_editcontrol1}
+	</span></td>
+</tr>
+{END serial_fieldblock}
+{BEGIN service_tag_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Service Tag
+	<td align=center><input type=checkbox {$service_tag_notbox}></td>
+	<td>{$searchtype_service_tag}</td>
+	
+	<td width=270>{$service_tag_editcontrol}</td>
+
+	<td width=270><span id="second_service_tag">
+	{$service_tag_editcontrol1}
+	</span></td>
+</tr>
+{END service_tag_fieldblock}
+{BEGIN proc_speed_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Proc Speed
+	<td align=center><input type=checkbox {$proc_speed_notbox}></td>
+	<td>{$searchtype_proc_speed}</td>
+	
+	<td width=270>{$proc_speed_editcontrol}</td>
+
+	<td width=270><span id="second_proc_speed">
+	{$proc_speed_editcontrol1}
+	</span></td>
+</tr>
+{END proc_speed_fieldblock}
+{BEGIN proc_type_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Proc Type
+	<td align=center><input type=checkbox {$proc_type_notbox}></td>
+	<td>{$searchtype_proc_type}</td>
+	
+	<td width=270>{$proc_type_editcontrol}</td>
+
+	<td width=270><span id="second_proc_type">
+	{$proc_type_editcontrol1}
+	</span></td>
+</tr>
+{END proc_type_fieldblock}
+{BEGIN ram_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Ram
+	<td align=center><input type=checkbox {$ram_notbox}></td>
+	<td>{$searchtype_ram}</td>
+	
+	<td width=270>{$ram_editcontrol}</td>
+
+	<td width=270><span id="second_ram">
+	{$ram_editcontrol1}
+	</span></td>
+</tr>
+{END ram_fieldblock}
+{BEGIN disk_size_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Disk Size
+	<td align=center><input type=checkbox {$disk_size_notbox}></td>
+	<td>{$searchtype_disk_size}</td>
+	
+	<td width=270>{$disk_size_editcontrol}</td>
+
+	<td width=270><span id="second_disk_size">
+	{$disk_size_editcontrol1}
+	</span></td>
+</tr>
+{END disk_size_fieldblock}
+{BEGIN optical_drive_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Optical Drive
+	<td align=center><input type=checkbox {$optical_drive_notbox}></td>
+	<td>{$searchtype_optical_drive}</td>
+	
+	<td width=270>{$optical_drive_editcontrol}</td>
+
+	<td width=270><span id="second_optical_drive">
+	{$optical_drive_editcontrol1}
+	</span></td>
+</tr>
+{END optical_drive_fieldblock}
+{BEGIN display_model_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Display Model
+	<td align=center><input type=checkbox {$display_model_notbox}></td>
+	<td>{$searchtype_display_model}</td>
+	
+	<td width=270>{$display_model_editcontrol}</td>
+
+	<td width=270><span id="second_display_model">
+	{$display_model_editcontrol1}
+	</span></td>
+</tr>
+{END display_model_fieldblock}
+{BEGIN display_size_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Display Size
+	<td align=center><input type=checkbox {$display_size_notbox}></td>
+	<td>{$searchtype_display_size}</td>
+	
+	<td width=270>{$display_size_editcontrol}</td>
+
+	<td width=270><span id="second_display_size">
+	{$display_size_editcontrol1}
+	</span></td>
+</tr>
+{END display_size_fieldblock}
+{BEGIN display_asset_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Display Asset
+	<td align=center><input type=checkbox {$display_asset_notbox}></td>
+	<td>{$searchtype_display_asset}</td>
+	
+	<td width=270>{$display_asset_editcontrol}</td>
+
+	<td width=270><span id="second_display_asset">
+	{$display_asset_editcontrol1}
+	</span></td>
+</tr>
+{END display_asset_fieldblock}
+{BEGIN display_serial_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Display Serial
+	<td align=center><input type=checkbox {$display_serial_notbox}></td>
+	<td>{$searchtype_display_serial}</td>
+	
+	<td width=270>{$display_serial_editcontrol}</td>
+
+	<td width=270><span id="second_display_serial">
+	{$display_serial_editcontrol1}
+	</span></td>
+</tr>
+{END display_serial_fieldblock}
+{BEGIN notes_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Notes
+	<td align=center><input type=checkbox {$notes_notbox}></td>
+	<td>{$searchtype_notes}</td>
+	
+	<td width=270>{$notes_editcontrol}</td>
+
+	<td width=270><span id="second_notes">
+	{$notes_editcontrol1}
+	</span></td>
+</tr>
+{END notes_fieldblock}
+{BEGIN last_updated_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Last Updated
+	<td align=center><input type=checkbox {$last_updated_notbox}></td>
+	<td>{$searchtype_last_updated}</td>
+	
+	<td width=270>{$last_updated_editcontrol}</td>
+
+	<td width=270><span id="second_last_updated">
+	{$last_updated_editcontrol1}
+	</span></td>
+</tr>
+{END last_updated_fieldblock}
+{BEGIN uname_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Uname
+	<td align=center><input type=checkbox {$uname_notbox}></td>
+	<td>{$searchtype_uname}</td>
+	
+	<td width=270>{$uname_editcontrol}</td>
+
+	<td width=270><span id="second_uname">
+	{$uname_editcontrol1}
+	</span></td>
+</tr>
+{END uname_fieldblock}
+{BEGIN lname_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Lname
+	<td align=center><input type=checkbox {$lname_notbox}></td>
+	<td>{$searchtype_lname}</td>
+	
+	<td width=270>{$lname_editcontrol}</td>
+
+	<td width=270><span id="second_lname">
+	{$lname_editcontrol1}
+	</span></td>
+</tr>
+{END lname_fieldblock}
+{BEGIN dept_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Dept
+	<td align=center><input type=checkbox {$dept_notbox}></td>
+	<td>{$searchtype_dept}</td>
+	
+	<td width=270>{$dept_editcontrol}</td>
+
+	<td width=270><span id="second_dept">
+	{$dept_editcontrol1}
+	</span></td>
+</tr>
+{END dept_fieldblock}
+{BEGIN mach_name_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Mach Name
+	<td align=center><input type=checkbox {$mach_name_notbox}></td>
+	<td>{$searchtype_mach_name}</td>
+	
+	<td width=270>{$mach_name_editcontrol}</td>
+
+	<td width=270><span id="second_mach_name">
+	{$mach_name_editcontrol1}
+	</span></td>
+</tr>
+{END mach_name_fieldblock}
+{BEGIN ip_addr_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Ip Addr
+	<td align=center><input type=checkbox {$ip_addr_notbox}></td>
+	<td>{$searchtype_ip_addr}</td>
+	
+	<td width=270>{$ip_addr_editcontrol}</td>
+
+	<td width=270><span id="second_ip_addr">
+	{$ip_addr_editcontrol1}
+	</span></td>
+</tr>
+{END ip_addr_fieldblock}
+{BEGIN mac_addr_fieldblock}		
+<tr class=shade>
+	<td class=fieldname>Mac Addr
+	<td align=center><input type=checkbox {$mac_addr_notbox}></td>
+	<td>{$searchtype_mac_addr}</td>
+	
+	<td width=270>{$mac_addr_editcontrol}</td>
+
+	<td width=270><span id="second_mac_addr">
+	{$mac_addr_editcontrol1}
+	</span></td>
+</tr>
+{END mac_addr_fieldblock}
+</table>
+
+<div class="blackshade" id="buttons_block">
+ <div id="required_block" ><img src="images/icon_required.gif"> - Required field</div>
+{BEGIN search_button}
+ <span class=buttonborder><input class=button type=button value="Search" {$searchbutton_attrs}></span>
+{END search_button} 
+{BEGIN reset_button}
+ <span class=buttonborder><input class=button type=button value="Reset" {$resetbutton_attrs}></span>
+{END reset_button}
+{BEGIN back_button}
+ <span class=buttonborder><input class=button type=button value="Back to list" {$backbutton_attrs}></span>
+{END back_button}
+</div>
+</td></tr></table>
+{END contents_block}
+{END body}
+{$footer}
+
+</body>
+</html>
+	
+

@@ -1,0 +1,21 @@
+AuthType Basic
+AuthName "CCA IDsearch"
+AuthBasicProvider ldap
+AuthLDAPUrl ldap://vm-ldap-rep-03.cca.edu:389/dc=cca,dc=edu?uid?sub?(objectClass=*)
+AuthLDAPBindDN uid=ets,ou=Administrators,ou=TopologyManagement,o=NetscapeRoot
+AuthLDAPBindPassword Eatgushmav7
+AuthzLDAPAuthoritative on
+Require valid-user
+#AuthLDAPGroupAttribute memberUid
+AuthLDAPGroupAttributeIsDN off
+
+<Files "index.php">
+  Order deny,allow
+  Deny from all
+  Allow from  209.40.80.0/24
+  Allow from  209.40.84.0/24
+  Allow from  209.40.90.0/24
+  Allow from  209.40.94.0/24
+  Allow from 172.21.0.0/16
+  Allow from 10.0.0.0/8
+</Files>

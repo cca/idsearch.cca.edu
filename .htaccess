@@ -4,9 +4,7 @@ AuthBasicProvider ldap
 AuthLDAPUrl ldap://vm-ldap-rep-03.cca.edu:389/dc=cca,dc=edu?uid?sub?(objectClass=*)
 AuthLDAPBindDN uid=ets,ou=Administrators,ou=TopologyManagement,o=NetscapeRoot
 AuthLDAPBindPassword Eatgushmav7
-AuthzLDAPAuthoritative on
 Require valid-user
-#AuthLDAPGroupAttribute memberUid
 AuthLDAPGroupAttributeIsDN off
 
 <Files "index.php">
